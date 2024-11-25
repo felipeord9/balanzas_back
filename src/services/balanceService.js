@@ -14,6 +14,21 @@ const findOne = async (id) => {
   return balance
 }
 
+const findByParam = async (balance) => {
+  const look = await models.Balance.findOne({
+    where: {
+      reference: balance 
+    },
+    include: [
+      "user"
+    ]
+  })
+ 
+  if(!look) throw boom.notFound('Certificado no encontrado')
+ 
+  return look
+}
+
 const create = async (data) => {
   const newBalance = await models.Balance.create(data)
   return newBalance
@@ -35,6 +50,7 @@ const remove = async (id) => {
 module.exports = {
   find,
   findOne,
+  findByParam,
   create,
   update,
   remove

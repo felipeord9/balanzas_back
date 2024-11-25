@@ -27,6 +27,21 @@ const findOneBalance = async (req, res, next) => {
   }
 };
 
+const findOneByParam = async (req, res, next) => {
+  try {
+    const { params: { balance } } = req;
+
+    const data = await BalanceService.findByParam(balance);
+
+    res.status(200).json({
+      message: 'OK',
+      data
+    })
+  } catch (error) {
+    next(error)
+  }
+};
+
 const createBalance = async (req, res, next) => {
   try {
     const { body } = req
@@ -74,6 +89,7 @@ const deleteBalance = async (req, res, next) => {
 module.exports = {
   findAllBalance,
   findOneBalance,
+  findOneByParam,
   createBalance,
   updateBalance,
   deleteBalance
