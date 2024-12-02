@@ -31,8 +31,7 @@ const BalanceSchema = {
   },
   serial:{
     type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
+    allowNull: true
   },
   zone:{
     type: DataTypes.STRING,
