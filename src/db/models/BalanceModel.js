@@ -23,11 +23,11 @@ const BalanceSchema = {
   },
   maximumWeight: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   minimumWeight: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: true
   },
   serial:{
     type: DataTypes.STRING,
