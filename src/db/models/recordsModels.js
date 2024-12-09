@@ -64,7 +64,11 @@ const RecordSchema = {
     },
     onUpdate: "CASCADE",
     onDelete: "SET NULL",
-  }
+  },
+  observations: {
+    type: DataTypes.TEXT,
+    allowNull: true
+  },
 };
 
 class Record extends Model {
